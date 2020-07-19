@@ -1,3 +1,4 @@
+"use strict";
 // Auto-generated via `yarn polkadot-types-from-defs`, do not edit
 /* eslint-disable */
-export * from './celerPayModule/types';
+Object.defineProperty(exports, "__esModule", { value: true });

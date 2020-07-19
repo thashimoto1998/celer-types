@@ -1,6 +1,8 @@
+"use strict";
 // Auto-generated via `yarn polkadot-types-from-chain`, do not edit
 /* eslint-disable */
-import '@polkadot/api/augment/rpc';
-import './augment-api-consts';
-import './augment-api-query';
-import './augment-api-tx';
+Object.defineProperty(exports, "__esModule", { value: true });
+require("@polkadot/api/augment/rpc");
+require("./augment-api-consts");
+require("./augment-api-query");
+require("./augment-api-tx");
