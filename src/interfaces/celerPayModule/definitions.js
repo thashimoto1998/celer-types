@@ -106,7 +106,7 @@ exports.default = {
             init_distribution: 'TokenDistribution',
             open_deadline: 'BlockNumber',
             dispute_timeout: 'BlockNumber',
-            msg_valie_receiver: 'u8',
+            msg_value_receiver: 'u8',
         },
         PaymentChannelInitializerOf: {
             balance_limits_enabled: 'bool',
@@ -114,7 +114,7 @@ exports.default = {
             init_distribution: 'TokenDistribution',
             open_deadline: 'BlockNumber',
             dispute_timeout: 'BlockNumber',
-            msg_valie_receiver: 'u8',
+            msg_value_receiver: 'u8',
         },
         OpenChannelRequest: {
             channel_initializer: 'PaymentChannelInitializer',

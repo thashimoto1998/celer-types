@@ -100,7 +100,7 @@ declare const _default: {
             init_distribution: string;
             open_deadline: string;
             dispute_timeout: string;
-            msg_valie_receiver: string;
+            msg_value_receiver: string;
         };
         PaymentChannelInitializerOf: {
             balance_limits_enabled: string;
@@ -108,7 +108,7 @@ declare const _default: {
             init_distribution: string;
             open_deadline: string;
             dispute_timeout: string;
-            msg_valie_receiver: string;
+            msg_value_receiver: string;
         };
         OpenChannelRequest: {
             channel_initializer: string;
