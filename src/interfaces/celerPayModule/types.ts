@@ -175,7 +175,7 @@ export interface PaymentChannelInitializer extends Struct {
   readonly init_distribution: TokenDistribution;
   readonly open_deadline: BlockNumber;
   readonly dispute_timeout: BlockNumber;
-  readonly msg_valie_receiver: u8;
+  readonly msg_value_receiver: u8;
 }
 
 /** @name PaymentChannelInitializerOf */
@@ -185,7 +185,7 @@ export interface PaymentChannelInitializerOf extends Struct {
   readonly init_distribution: TokenDistribution;
   readonly open_deadline: BlockNumber;
   readonly dispute_timeout: BlockNumber;
-  readonly msg_valie_receiver: u8;
+  readonly msg_value_receiver: u8;
 }
 
 /** @name PeerProfile */
