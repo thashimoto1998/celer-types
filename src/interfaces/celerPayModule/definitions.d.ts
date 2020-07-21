@@ -2,11 +2,11 @@ declare const _default: {
     types: {
         PayInfo: {
             amount: string;
-            resolve_deadline: string;
+            resolveDeadline: string;
         };
         PayInfoOf: {
             amount: string;
-            resolve_deadline: string;
+            resolveDeadline: string;
         };
         Wallet: {
             owners: string;
@@ -20,20 +20,20 @@ declare const _default: {
             _enum: string[];
         };
         Condition: {
-            condition_type: string;
-            hash_lock: string;
-            call_is_finalized: string;
-            call_get_outcome: string;
-            numeric_app_num: string;
-            numeric_session_id: string;
-            args_query_finalization: string;
-            args_query_outcome: string;
+            conditionType: string;
+            hashLock: string;
+            callIsFinalized: string;
+            callGetOutcome: string;
+            numericAppNum: string;
+            numericSessionId: string;
+            argsQueryFinalization: string;
+            argsQueryOutcome: string;
         };
         TokenType: {
             _enum: string[];
         };
         TokenInfo: {
-            token_type: string;
+            tokenType: string;
         };
         AccountAmtPair: {
             account: string;
@@ -47,140 +47,140 @@ declare const _default: {
             _enum: string[];
         };
         TransferFunction: {
-            logic_type: string;
-            max_transfer: string;
+            logicType: string;
+            maxTransfer: string;
         };
         ConditionalPay: {
-            pay_timestamp: string;
+            payTimestamp: string;
             src: string;
             dest: string;
             conditions: string;
-            transfer_func: string;
-            resolve_deadline: string;
-            resovle_timeout: string;
+            transferFunc: string;
+            resolveDeadline: string;
+            resovleTimeout: string;
         };
         ConditionalPayOf: {
-            pay_timestamp: string;
+            payTimestamp: string;
             src: string;
             dest: string;
             conditions: string;
-            transfer_func: string;
-            resolve_deadline: string;
-            resovle_timeout: string;
+            transferFunc: string;
+            resolveDeadline: string;
+            resovleTimeout: string;
         };
         ResolvePaymentConditionsRequest: {
-            cond_pay: string;
-            hash_preimages: string;
+            condPay: string;
+            hashPreimages: string;
         };
         ResolvePaymentConditionsRequestOf: {
-            cond_pay: string;
-            hash_preimages: string;
+            condPay: string;
+            hashPreimages: string;
         };
         CondPayResult: {
-            cond_pay: string;
+            condPay: string;
             amount: string;
         };
         VouchedCondPayResult: {
-            cond_pay_result: string;
-            sig_of_src: string;
-            sig_of_dest: string;
+            condPayResult: string;
+            sigOfSrc: string;
+            sigOfDest: string;
         };
         VouchedCondPayResultOf: {
-            cond_pay_result: string;
-            sig_of_src: string;
-            sig_of_dest: string;
+            condPayResult: string;
+            sigOfSrc: string;
+            sigOfDest: string;
         };
         TokenDistribution: {
             token: string;
             distribution: string;
         };
         PaymentChannelInitializer: {
-            balance_limits_enabled: string;
-            balance_limits: string;
-            init_distribution: string;
-            open_deadline: string;
-            dispute_timeout: string;
-            msg_value_receiver: string;
+            balanceLimitsEnabled: string;
+            balanceLimits: string;
+            initDistribution: string;
+            openDeadline: string;
+            disputeTimeout: string;
+            msgValueReceiver: string;
         };
         PaymentChannelInitializerOf: {
-            balance_limits_enabled: string;
-            balance_limits: string;
-            init_distribution: string;
-            open_deadline: string;
-            dispute_timeout: string;
-            msg_value_receiver: string;
+            balanceLimitsEnabled: string;
+            balanceLimits: string;
+            initDistribution: string;
+            openDeadline: string;
+            disputeTimeout: string;
+            msgValueReceiver: string;
         };
         OpenChannelRequest: {
-            channel_initializer: string;
+            channelInitializer: string;
             sigs: string;
         };
         OpenChannelRequestOf: {
-            channel_initializer: string;
+            channelInitializer: string;
             sigs: string;
         };
         PayIdList: {
-            pay_ids: string;
-            next_list_hash: string;
+            payIds: string;
+            nextListHash: string;
         };
         SimplexPaymentChannel: {
-            channel_id: string;
-            peer_from: string;
-            seq_num: string;
-            transfer_to_peer: string;
-            pending_pay_ids: string;
-            last_pay_resolve_deadline: string;
-            total_pending_amount: string;
+            channelId: string;
+            peerFrom: string;
+            seqNum: string;
+            transferToPeer: string;
+            pendingPayIds: string;
+            lastPayResolveDeadline: string;
+            totalPendingAmount: string;
         };
         SignedSimplexState: {
-            signed_simplex_state: string;
+            signedSimplexState: string;
             sigs: string;
         };
         SignedSimplexStateArray: {
-            signed_simplex_states: string;
+            signedSimplexStates: string;
         };
         SignedSimplexStateArrayOf: {
-            signed_simplex_states: string;
+            signedSimplexStates: string;
         };
         CooperativeWithdrawInfo: {
-            channel_id: string;
-            seq_num: string;
+            channelId: string;
+            seqNum: string;
             withdraw: string;
-            withdraw_deadline: string;
-            recipient_channel_id: string;
+            withdrawDeadline: string;
+            recipientChannelId: string;
         };
         CooperativeWithdrawInfoOf: {
-            channel_id: string;
-            seq_num: string;
+            channelId: string;
+            seqNum: string;
             withdraw: string;
-            withdraw_deadline: string;
-            recipient_channel_id: string;
+            withdrawDeadline: string;
+            recipientChannelId: string;
         };
         CooperativeWithdrawRequest: {
-            withdraw_info: string;
+            withdrawInfo: string;
             sigs: string;
         };
         CooperativeWithdrawRequestOf: {
-            withdraw_info: string;
+            withdrawInfo: string;
             sigs: string;
         };
         CooperativeSettleInfo: {
-            channel_id: string;
-            seq_num: string;
-            settle_balance: string;
-            settle_deadline: string;
+            channelId: string;
+            seqNum: string;
+            settleBalance: string;
+            settleDeadline: string;
         };
         CooperativeSettleInfoOf: {
-            channel_id: string;
-            seq_num: string;
-            settle_balance: string;
-            settle_deadline: string;
+            channelId: string;
+            seqNum: string;
+            settleBalance: string;
+            settleDeadline: string;
         };
         CooperativeSettleRequest: {
-            settle_info: string;
+            settleInfo: string;
             sigs: string;
         };
         CooperativeSettleRequestOf: {
-            settle_info: string;
+            settleInfo: string;
             sigs: string;
         };
         ChannelStatus: {
@@ -192,27 +192,27 @@ declare const _default: {
             };
         };
         PeerState: {
-            seq_num: string;
-            transfer_out: string;
-            next_pay_id_list_hash: string;
-            last_pay_resolve_deadline: string;
-            pending_pay_out: string;
+            seqNum: string;
+            transferOut: string;
+            nextPayIdListHash: string;
+            lastPayResolveDeadline: string;
+            pendingPayOut: string;
         };
         PeerStateOf: {
-            seq_num: string;
-            transfer_out: string;
-            next_pay_id_list_hash: string;
-            last_pay_resolve_deadline: string;
-            pending_pay_out: string;
+            seqNum: string;
+            transferOut: string;
+            nextPayIdListHash: string;
+            lastPayResolveDeadline: string;
+            pendingPayOut: string;
         };
         PeerProfile: {
-            peer_addr: string;
+            peerAddr: string;
             deposit: string;
             withdrawal: string;
             state: string;
         };
         PeerProfileOf: {
-            peer_addr: string;
+            peerAddr: string;
             deposit: string;
             withdrawal: string;
             state: string;
@@ -220,25 +220,25 @@ declare const _default: {
         WithdrawIntent: {
             receiver: string;
             amount: string;
-            request_time: string;
-            recipient_channel_id: string;
+            requestTime: string;
+            recipientChannelId: string;
         };
         WithdrawIntentOf: {
             receiver: string;
             amount: string;
-            request_time: string;
-            recipient_channel_id: string;
+            requestTime: string;
+            recipientChannelId: string;
         };
         ChannelOf: {
-            balance_limits_enabled: string;
-            balance_limits: string;
-            settle_finalized_time: string;
-            dispute_timeout: string;
+            balanceLimitsEnabled: string;
+            balanceLimits: string;
+            settleFinalizedTime: string;
+            disputeTimeout: string;
             token: string;
             status: string;
-            peer_profiles: string;
-            cooperative_withdraw_seq_num: string;
-            withdraw_intent: string;
+            peerProfiles: string;
+            cooperativeWithdrawSeqNum: string;
+            withdrawIntent: string;
         };
     };
 };
