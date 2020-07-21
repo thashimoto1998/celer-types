@@ -122,7 +122,7 @@ declare module '@polkadot/api/types/submittable' {
        * - 1 storage mutation `ChannelMap`
        * # </weight>
        **/
-      clearPays: AugmentedSubmittable<(channelId: Hash | string | Uint8Array, peerFrom: AccountId | string | Uint8Array, payIdList: PayIdList | { pay_ids?: any; next_list_hash?: any } | string | Uint8Array) => SubmittableExtrinsic<ApiType>>;
+      clearPays: AugmentedSubmittable<(channelId: Hash | string | Uint8Array, peerFrom: AccountId | string | Uint8Array, payIdList: PayIdList | { payIds?: any; nextListHash?: any } | string | Uint8Array) => SubmittableExtrinsic<ApiType>>;
       /**
        * Confirm channel settlement
        * 
@@ -181,7 +181,7 @@ declare module '@polkadot/api/types/submittable' {
        * - 1 storage mutation `Wallets`
        * # </weight>
        **/
-      cooperativeSettle: AugmentedSubmittable<(settleRequest: CooperativeSettleRequestOf | { settle_info?: any; sigs?: any } | string | Uint8Array) => SubmittableExtrinsic<ApiType>>;
+      cooperativeSettle: AugmentedSubmittable<(settleRequest: CooperativeSettleRequestOf | { settleInfo?: any; sigs?: any } | string | Uint8Array) => SubmittableExtrinsic<ApiType>>;
       /**
        * Cooperatively withdraw specific amount of balance
        * 
@@ -198,7 +198,7 @@ declare module '@polkadot/api/types/submittable' {
        * - 2 storage mutation `Wallets`
        * # </weight>
        **/
-      cooperativeWithdraw: AugmentedSubmittable<(cooperativeWithdrawRequest: CooperativeWithdrawRequestOf | { withdraw_info?: any; sigs?: any } | string | Uint8Array) => SubmittableExtrinsic<ApiType>>;
+      cooperativeWithdraw: AugmentedSubmittable<(cooperativeWithdrawRequest: CooperativeWithdrawRequestOf | { withdrawInfo?: any; sigs?: any } | string | Uint8Array) => SubmittableExtrinsic<ApiType>>;
       /**
        * Decrease the amount of native token that an owner allowed to a spender.
        * 
@@ -365,7 +365,7 @@ declare module '@polkadot/api/types/submittable' {
        * - 2 * M storage reads `PayInfoMap`
        * # </weight>
        **/
-      intendSettle: AugmentedSubmittable<(signedSimplexStateArray: SignedSimplexStateArrayOf | { signed_simplex_states?: any } | string | Uint8Array) => SubmittableExtrinsic<ApiType>>;
+      intendSettle: AugmentedSubmittable<(signedSimplexStateArray: SignedSimplexStateArrayOf | { signedSimplexStates?: any } | string | Uint8Array) => SubmittableExtrinsic<ApiType>>;
       /**
        * Intend to withdraw funds from channel
        * 
@@ -406,7 +406,7 @@ declare module '@polkadot/api/types/submittable' {
        * - 1 storage write `WalletNum`
        * # </weight>
        **/
-      openChannel: AugmentedSubmittable<(openRequest: OpenChannelRequestOf | { channel_initializer?: any; sigs?: any } | string | Uint8Array, amount: BalanceOf | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>>;
+      openChannel: AugmentedSubmittable<(openRequest: OpenChannelRequestOf | { channelInitializer?: any; sigs?: any } | string | Uint8Array, amount: BalanceOf | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>>;
       /**
        * PayResolver
        * Resolve a payment by onchain getting its conditons outcomes
@@ -427,7 +427,7 @@ declare module '@polkadot/api/types/submittable' {
        * - 1 storage mutation `PayRegistry`
        * # </weight>
        **/
-      resolvePaymentByConditions: AugmentedSubmittable<(resolvePayRequest: ResolvePaymentConditionsRequestOf | { cond_pay?: any; hash_preimages?: any } | string | Uint8Array) => SubmittableExtrinsic<ApiType>>;
+      resolvePaymentByConditions: AugmentedSubmittable<(resolvePayRequest: ResolvePaymentConditionsRequestOf | { condPay?: any; hashPreimages?: any } | string | Uint8Array) => SubmittableExtrinsic<ApiType>>;
       /**
        * Resolve a payment by submitting an offchain vouched result
        * 
@@ -443,7 +443,7 @@ declare module '@polkadot/api/types/submittable' {
        * - 1 storage mutation `PayRegistry`
        * # </weight>
        **/
-      resolvePaymentByVouchedResult: AugmentedSubmittable<(vouchedPayResult: VouchedCondPayResultOf | { cond_pay_result?: any; sig_of_src?: any; sig_of_dest?: any } | string | Uint8Array) => SubmittableExtrinsic<ApiType>>;
+      resolvePaymentByVouchedResult: AugmentedSubmittable<(vouchedPayResult: VouchedCondPayResultOf | { condPayResult?: any; sigOfSrc?: any; sigOfDest?: any } | string | Uint8Array) => SubmittableExtrinsic<ApiType>>;
       /**
        * Celer Ledger
        * Set the balance limits
@@ -482,7 +482,7 @@ declare module '@polkadot/api/types/submittable' {
        * - N storage mutation `ChannelMap`
        * # </weight>
        **/
-      snapshotStates: AugmentedSubmittable<(signedSimplexStateArray: SignedSimplexStateArrayOf | { signed_simplex_states?: any } | string | Uint8Array) => SubmittableExtrinsic<ApiType>>;
+      snapshotStates: AugmentedSubmittable<(signedSimplexStateArray: SignedSimplexStateArrayOf | { signedSimplexStates?: any } | string | Uint8Array) => SubmittableExtrinsic<ApiType>>;
       /**
        * Transfer native token from one address to another.
        * 

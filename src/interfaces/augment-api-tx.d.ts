@@ -119,8 +119,8 @@ declare module '@polkadot/api/types/submittable' {
              * # </weight>
              **/
             clearPays: AugmentedSubmittable<(channelId: Hash | string | Uint8Array, peerFrom: AccountId | string | Uint8Array, payIdList: PayIdList | {
-                pay_ids?: any;
-                next_list_hash?: any;
+                payIds?: any;
+                nextListHash?: any;
             } | string | Uint8Array) => SubmittableExtrinsic<ApiType>>;
             /**
              * Confirm channel settlement
@@ -181,7 +181,7 @@ declare module '@polkadot/api/types/submittable' {
              * # </weight>
              **/
             cooperativeSettle: AugmentedSubmittable<(settleRequest: CooperativeSettleRequestOf | {
-                settle_info?: any;
+                settleInfo?: any;
                 sigs?: any;
             } | string | Uint8Array) => SubmittableExtrinsic<ApiType>>;
             /**
@@ -201,7 +201,7 @@ declare module '@polkadot/api/types/submittable' {
              * # </weight>
              **/
             cooperativeWithdraw: AugmentedSubmittable<(cooperativeWithdrawRequest: CooperativeWithdrawRequestOf | {
-                withdraw_info?: any;
+                withdrawInfo?: any;
                 sigs?: any;
             } | string | Uint8Array) => SubmittableExtrinsic<ApiType>>;
             /**
@@ -371,7 +371,7 @@ declare module '@polkadot/api/types/submittable' {
              * # </weight>
              **/
             intendSettle: AugmentedSubmittable<(signedSimplexStateArray: SignedSimplexStateArrayOf | {
-                signed_simplex_states?: any;
+                signedSimplexStates?: any;
             } | string | Uint8Array) => SubmittableExtrinsic<ApiType>>;
             /**
              * Intend to withdraw funds from channel
@@ -414,7 +414,7 @@ declare module '@polkadot/api/types/submittable' {
              * # </weight>
              **/
             openChannel: AugmentedSubmittable<(openRequest: OpenChannelRequestOf | {
-                channel_initializer?: any;
+                channelInitializer?: any;
                 sigs?: any;
             } | string | Uint8Array, amount: BalanceOf | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>>;
             /**
@@ -438,8 +438,8 @@ declare module '@polkadot/api/types/submittable' {
              * # </weight>
              **/
             resolvePaymentByConditions: AugmentedSubmittable<(resolvePayRequest: ResolvePaymentConditionsRequestOf | {
-                cond_pay?: any;
-                hash_preimages?: any;
+                condPay?: any;
+                hashPreimages?: any;
             } | string | Uint8Array) => SubmittableExtrinsic<ApiType>>;
             /**
              * Resolve a payment by submitting an offchain vouched result
@@ -457,9 +457,9 @@ declare module '@polkadot/api/types/submittable' {
              * # </weight>
              **/
             resolvePaymentByVouchedResult: AugmentedSubmittable<(vouchedPayResult: VouchedCondPayResultOf | {
-                cond_pay_result?: any;
-                sig_of_src?: any;
-                sig_of_dest?: any;
+                condPayResult?: any;
+                sigOfSrc?: any;
+                sigOfDest?: any;
             } | string | Uint8Array) => SubmittableExtrinsic<ApiType>>;
             /**
              * Celer Ledger
@@ -500,7 +500,7 @@ declare module '@polkadot/api/types/submittable' {
              * # </weight>
              **/
             snapshotStates: AugmentedSubmittable<(signedSimplexStateArray: SignedSimplexStateArrayOf | {
-                signed_simplex_states?: any;
+                signedSimplexStates?: any;
             } | string | Uint8Array) => SubmittableExtrinsic<ApiType>>;
             /**
              * Transfer native token from one address to another.

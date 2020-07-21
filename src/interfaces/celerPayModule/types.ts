@@ -14,15 +14,15 @@ export interface AccountAmtPair extends Struct {
 
 /** @name ChannelOf */
 export interface ChannelOf extends Struct {
-  readonly balance_limits_enabled: bool;
-  readonly balance_limits: Option<Balance>;
-  readonly settle_finalized_time: Option<BlockNumber>;
-  readonly dispute_timeout: BlockNumber;
+  readonly balanceLimitsEnabled: bool;
+  readonly balanceLimits: Option<Balance>;
+  readonly settleFinalizedTime: Option<BlockNumber>;
+  readonly disputeTimeout: BlockNumber;
   readonly token: TokenInfo;
   readonly status: ChannelStatus;
-  readonly peer_profiles: Vec<PeerProfile>;
-  readonly cooperative_withdraw_seq_num: Option<u128>;
-  readonly withdraw_intent: WithdrawIntent;
+  readonly peerProfiles: Vec<PeerProfile>;
+  readonly cooperativeWithdrawSeqNum: Option<u128>;
+  readonly withdrawIntent: WithdrawIntent;
 }
 
 /** @name ChannelStatus */
@@ -35,36 +35,36 @@ export interface ChannelStatus extends Set {
 
 /** @name Condition */
 export interface Condition extends Struct {
-  readonly condition_type: ConditionType;
-  readonly hash_lock: Option<Hash>;
-  readonly call_is_finalized: Option<Call>;
-  readonly call_get_outcome: Option<Call>;
-  readonly numeric_app_num: Option<u32>;
-  readonly numeric_session_id: Option<Hash>;
-  readonly args_query_finalization: Option<Bytes>;
-  readonly args_query_outcome: Option<Bytes>;
+  readonly conditionType: ConditionType;
+  readonly hashLock: Option<Hash>;
+  readonly callIsFinalized: Option<Call>;
+  readonly callGetOutcome: Option<Call>;
+  readonly numericAppNum: Option<u32>;
+  readonly numericSessionId: Option<Hash>;
+  readonly argsQueryFinalization: Option<Bytes>;
+  readonly argsQueryOutcome: Option<Bytes>;
 }
 
 /** @name ConditionalPay */
 export interface ConditionalPay extends Struct {
-  readonly pay_timestamp: Moment;
+  readonly payTimestamp: Moment;
   readonly src: AccountId;
   readonly dest: AccountId;
   readonly conditions: Vec<Condition>;
-  readonly transfer_func: TransferFunction;
-  readonly resolve_deadline: BlockNumber;
-  readonly resovle_timeout: BlockNumber;
+  readonly transferFunc: TransferFunction;
+  readonly resolveDeadline: BlockNumber;
+  readonly resovleTimeout: BlockNumber;
 }
 
 /** @name ConditionalPayOf */
 export interface ConditionalPayOf extends Struct {
-  readonly pay_timestamp: Moment;
+  readonly payTimestamp: Moment;
   readonly src: AccountId;
   readonly dest: AccountId;
   readonly conditions: Vec<Condition>;
-  readonly transfer_func: TransferFunction;
-  readonly resolve_deadline: BlockNumber;
-  readonly resovle_timeout: BlockNumber;
+  readonly transferFunc: TransferFunction;
+  readonly resolveDeadline: BlockNumber;
+  readonly resovleTimeout: BlockNumber;
 }
 
 /** @name ConditionType */
@@ -76,121 +76,121 @@ export interface ConditionType extends Enum {
 
 /** @name CondPayResult */
 export interface CondPayResult extends Struct {
-  readonly cond_pay: ConditionalPay;
+  readonly condPay: ConditionalPay;
   readonly amount: Balance;
 }
 
 /** @name CooperativeSettleInfo */
 export interface CooperativeSettleInfo extends Struct {
-  readonly channel_id: Hash;
-  readonly seq_num: u128;
-  readonly settle_balance: Vec<AccountAmtPair>;
-  readonly settle_deadline: BlockNumber;
+  readonly channelId: Hash;
+  readonly seqNum: u128;
+  readonly settleBalance: Vec<AccountAmtPair>;
+  readonly settleDeadline: BlockNumber;
 }
 
 /** @name CooperativeSettleInfoOf */
 export interface CooperativeSettleInfoOf extends Struct {
-  readonly channel_id: Hash;
-  readonly seq_num: u128;
-  readonly settle_balance: Vec<AccountAmtPair>;
-  readonly settle_deadline: BlockNumber;
+  readonly channelId: Hash;
+  readonly seqNum: u128;
+  readonly settleBalance: Vec<AccountAmtPair>;
+  readonly settleDeadline: BlockNumber;
 }
 
 /** @name CooperativeSettleRequest */
 export interface CooperativeSettleRequest extends Struct {
-  readonly settle_info: CooperativeSettleInfo;
+  readonly settleInfo: CooperativeSettleInfo;
   readonly sigs: Vec<Signature>;
 }
 
 /** @name CooperativeSettleRequestOf */
 export interface CooperativeSettleRequestOf extends Struct {
-  readonly settle_info: CooperativeSettleInfo;
+  readonly settleInfo: CooperativeSettleInfo;
   readonly sigs: Vec<Signature>;
 }
 
 /** @name CooperativeWithdrawInfo */
 export interface CooperativeWithdrawInfo extends Struct {
-  readonly channel_id: Hash;
-  readonly seq_num: u128;
+  readonly channelId: Hash;
+  readonly seqNum: u128;
   readonly withdraw: AccountAmtPair;
-  readonly withdraw_deadline: BlockNumber;
-  readonly recipient_channel_id: Hash;
+  readonly withdrawDeadline: BlockNumber;
+  readonly recipientChannelId: Hash;
 }
 
 /** @name CooperativeWithdrawInfoOf */
 export interface CooperativeWithdrawInfoOf extends Struct {
-  readonly channel_id: Hash;
-  readonly seq_num: u128;
+  readonly channelId: Hash;
+  readonly seqNum: u128;
   readonly withdraw: AccountAmtPair;
-  readonly withdraw_deadline: BlockNumber;
-  readonly recipient_channel_id: Hash;
+  readonly withdrawDeadline: BlockNumber;
+  readonly recipientChannelId: Hash;
 }
 
 /** @name CooperativeWithdrawRequest */
 export interface CooperativeWithdrawRequest extends Struct {
-  readonly withdraw_info: CooperativeWithdrawInfo;
+  readonly withdrawInfo: CooperativeWithdrawInfo;
   readonly sigs: Vec<Signature>;
 }
 
 /** @name CooperativeWithdrawRequestOf */
 export interface CooperativeWithdrawRequestOf extends Struct {
-  readonly withdraw_info: CooperativeWithdrawInfo;
+  readonly withdrawInfo: CooperativeWithdrawInfo;
   readonly sigs: Vec<Signature>;
 }
 
 /** @name OpenChannelRequest */
 export interface OpenChannelRequest extends Struct {
-  readonly channel_initializer: PaymentChannelInitializer;
+  readonly channelInitializer: PaymentChannelInitializer;
   readonly sigs: Vec<Signature>;
 }
 
 /** @name OpenChannelRequestOf */
 export interface OpenChannelRequestOf extends Struct {
-  readonly channel_initializer: PaymentChannelInitializer;
+  readonly channelInitializer: PaymentChannelInitializer;
   readonly sigs: Vec<Signature>;
 }
 
 /** @name PayIdList */
 export interface PayIdList extends Struct {
-  readonly pay_ids: Vec<Hash>;
-  readonly next_list_hash: Option<Hash>;
+  readonly payIds: Vec<Hash>;
+  readonly nextListHash: Option<Hash>;
 }
 
 /** @name PayInfo */
 export interface PayInfo extends Struct {
   readonly amount: Option<Balance>;
-  readonly resolve_deadline: Option<BlockNumber>;
+  readonly resolveDeadline: Option<BlockNumber>;
 }
 
 /** @name PayInfoOf */
 export interface PayInfoOf extends Struct {
   readonly amount: Option<Balance>;
-  readonly resolve_deadline: Option<BlockNumber>;
+  readonly resolveDeadline: Option<BlockNumber>;
 }
 
 /** @name PaymentChannelInitializer */
 export interface PaymentChannelInitializer extends Struct {
-  readonly balance_limits_enabled: bool;
-  readonly balance_limits: Option<Balance>;
-  readonly init_distribution: TokenDistribution;
-  readonly open_deadline: BlockNumber;
-  readonly dispute_timeout: BlockNumber;
-  readonly msg_value_receiver: u8;
+  readonly balanceLimitsEnabled: bool;
+  readonly balanceLimits: Option<Balance>;
+  readonly initDistribution: TokenDistribution;
+  readonly openDeadline: BlockNumber;
+  readonly disputeTimeout: BlockNumber;
+  readonly msgValueReceiver: u8;
 }
 
 /** @name PaymentChannelInitializerOf */
 export interface PaymentChannelInitializerOf extends Struct {
-  readonly balance_limits_enabled: bool;
-  readonly balance_limits: Option<Balance>;
-  readonly init_distribution: TokenDistribution;
-  readonly open_deadline: BlockNumber;
-  readonly dispute_timeout: BlockNumber;
-  readonly msg_value_receiver: u8;
+  readonly balanceLimitsEnabled: bool;
+  readonly balanceLimits: Option<Balance>;
+  readonly initDistribution: TokenDistribution;
+  readonly openDeadline: BlockNumber;
+  readonly disputeTimeout: BlockNumber;
+  readonly msgValueReceiver: u8;
 }
 
 /** @name PeerProfile */
 export interface PeerProfile extends Struct {
-  readonly peer_addr: AccountId;
+  readonly peerAddr: AccountId;
   readonly deposit: Balance;
   readonly withdrawal: Option<Balance>;
   readonly state: PeerState;
@@ -198,7 +198,7 @@ export interface PeerProfile extends Struct {
 
 /** @name PeerProfileOf */
 export interface PeerProfileOf extends Struct {
-  readonly peer_addr: AccountId;
+  readonly peerAddr: AccountId;
   readonly deposit: Balance;
   readonly withdrawal: Option<Balance>;
   readonly state: PeerState;
@@ -206,59 +206,59 @@ export interface PeerProfileOf extends Struct {
 
 /** @name PeerState */
 export interface PeerState extends Struct {
-  readonly seq_num: u128;
-  readonly transfer_out: Balance;
-  readonly next_pay_id_list_hash: Option<Hash>;
-  readonly last_pay_resolve_deadline: BlockNumber;
-  readonly pending_pay_out: Balance;
+  readonly seqNum: u128;
+  readonly transferOut: Balance;
+  readonly nextPayIdListHash: Option<Hash>;
+  readonly lastPayResolveDeadline: BlockNumber;
+  readonly pendingPayOut: Balance;
 }
 
 /** @name PeerStateOf */
 export interface PeerStateOf extends Struct {
-  readonly seq_num: u128;
-  readonly transfer_out: Balance;
-  readonly next_pay_id_list_hash: Option<Hash>;
-  readonly last_pay_resolve_deadline: BlockNumber;
-  readonly pending_pay_out: Balance;
+  readonly seqNum: u128;
+  readonly transferOut: Balance;
+  readonly nextPayIdListHash: Option<Hash>;
+  readonly lastPayResolveDeadline: BlockNumber;
+  readonly pendingPayOut: Balance;
 }
 
 /** @name ResolvePaymentConditionsRequest */
 export interface ResolvePaymentConditionsRequest extends Struct {
-  readonly cond_pay: ConditionalPay;
-  readonly hash_preimages: Vec<Hash>;
+  readonly condPay: ConditionalPay;
+  readonly hashPreimages: Vec<Hash>;
 }
 
 /** @name ResolvePaymentConditionsRequestOf */
 export interface ResolvePaymentConditionsRequestOf extends Struct {
-  readonly cond_pay: ConditionalPay;
-  readonly hash_preimages: Vec<Hash>;
+  readonly condPay: ConditionalPay;
+  readonly hashPreimages: Vec<Hash>;
 }
 
 /** @name SignedSimplexState */
 export interface SignedSimplexState extends Struct {
-  readonly signed_simplex_state: SimplexPaymentChannel;
+  readonly signedSimplexState: SimplexPaymentChannel;
   readonly sigs: Vec<Signature>;
 }
 
 /** @name SignedSimplexStateArray */
 export interface SignedSimplexStateArray extends Struct {
-  readonly signed_simplex_states: Vec<SignedSimplexState>;
+  readonly signedSimplexStates: Vec<SignedSimplexState>;
 }
 
 /** @name SignedSimplexStateArrayOf */
 export interface SignedSimplexStateArrayOf extends Struct {
-  readonly signed_simplex_states: Vec<SignedSimplexState>;
+  readonly signedSimplexStates: Vec<SignedSimplexState>;
 }
 
 /** @name SimplexPaymentChannel */
 export interface SimplexPaymentChannel extends Struct {
-  readonly channel_id: Hash;
-  readonly peer_from: Option<AccountId>;
-  readonly seq_num: u128;
-  readonly transfer_to_peer: Option<TokenTransfer>;
-  readonly pending_pay_ids: Option<PayIdList>;
-  readonly last_pay_resolve_deadline: Option<BlockNumber>;
-  readonly total_pending_amount: Option<Balance>;
+  readonly channelId: Hash;
+  readonly peerFrom: Option<AccountId>;
+  readonly seqNum: u128;
+  readonly transferToPeer: Option<TokenTransfer>;
+  readonly pendingPayIds: Option<PayIdList>;
+  readonly lastPayResolveDeadline: Option<BlockNumber>;
+  readonly totalPendingAmount: Option<Balance>;
 }
 
 /** @name TokenDistribution */
@@ -269,7 +269,7 @@ export interface TokenDistribution extends Struct {
 
 /** @name TokenInfo */
 export interface TokenInfo extends Struct {
-  readonly token_type: TokenType;
+  readonly tokenType: TokenType;
 }
 
 /** @name TokenTransfer */
@@ -286,8 +286,8 @@ export interface TokenType extends Enum {
 
 /** @name TransferFunction */
 export interface TransferFunction extends Struct {
-  readonly logic_type: TransferFunctionType;
-  readonly max_transfer: TokenTransfer;
+  readonly logicType: TransferFunctionType;
+  readonly maxTransfer: TokenTransfer;
 }
 
 /** @name TransferFunctionType */
@@ -302,16 +302,16 @@ export interface TransferFunctionType extends Enum {
 
 /** @name VouchedCondPayResult */
 export interface VouchedCondPayResult extends Struct {
-  readonly cond_pay_result: CondPayResult;
-  readonly sig_of_src: Signature;
-  readonly sig_of_dest: Signature;
+  readonly condPayResult: CondPayResult;
+  readonly sigOfSrc: Signature;
+  readonly sigOfDest: Signature;
 }
 
 /** @name VouchedCondPayResultOf */
 export interface VouchedCondPayResultOf extends Struct {
-  readonly cond_pay_result: CondPayResult;
-  readonly sig_of_src: Signature;
-  readonly sig_of_dest: Signature;
+  readonly condPayResult: CondPayResult;
+  readonly sigOfSrc: Signature;
+  readonly sigOfDest: Signature;
 }
 
 /** @name Wallet */
@@ -330,16 +330,16 @@ export interface WalletOf extends Struct {
 export interface WithdrawIntent extends Struct {
   readonly receiver: AccountId;
   readonly amount: Option<Balance>;
-  readonly request_time: Option<BlockNumber>;
-  readonly recipient_channel_id: Option<Hash>;
+  readonly requestTime: Option<BlockNumber>;
+  readonly recipientChannelId: Option<Hash>;
 }
 
 /** @name WithdrawIntentOf */
 export interface WithdrawIntentOf extends Struct {
   readonly receiver: AccountId;
   readonly amount: Option<Balance>;
-  readonly request_time: Option<BlockNumber>;
-  readonly recipient_channel_id: Option<Hash>;
+  readonly requestTime: Option<BlockNumber>;
+  readonly recipientChannelId: Option<Hash>;
 }
 
 export type PHANTOM_CELERPAYMODULE = 'celerPayModule';
