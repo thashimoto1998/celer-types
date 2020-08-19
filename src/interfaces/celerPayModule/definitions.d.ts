@@ -66,7 +66,7 @@ declare const _default: {
             conditions: string;
             transferFunc: string;
             resolveDeadline: string;
-            resovleTimeout: string;
+            resolveTimeout: string;
         };
         ResolvePaymentConditionsRequest: {
             condPay: string;
