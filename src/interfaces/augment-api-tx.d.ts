@@ -1,6 +1,6 @@
 import { AnyNumber } from '@polkadot/types/types';
 import { Compact, Option, Vec } from '@polkadot/types/codec';
-import { Bytes, u32, u64 } from '@polkadot/types/primitive';
+import { Bytes, u32, u64, u8 } from '@polkadot/types/primitive';
 import { Extrinsic } from '@polkadot/types/interfaces/extrinsics';
 import { GrandpaEquivocationProof, KeyOwnerProof } from '@polkadot/types/interfaces/grandpa';
 import { AccountId, AccountIndex, Address, Balance, BalanceOf, Call, ChangesTrieConfiguration, Hash, KeyValue, LookupSource, Moment, Perbill, Weight } from '@polkadot/types/interfaces/runtime';
@@ -594,6 +594,10 @@ declare module '@polkadot/api/types/submittable' {
                 trieNodes?: any;
                 validatorCount?: any;
             } | string | Uint8Array) => SubmittableExtrinsic<ApiType>>;
+        };
+        mockBooleanCondition: {
+            getOutcome: AugmentedSubmittable<(appId: Hash | string | Uint8Array, number: u8 | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>>;
+            isFinalized: AugmentedSubmittable<(appId: Hash | string | Uint8Array, number: u8 | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>>;
         };
         sudo: {
             /**
