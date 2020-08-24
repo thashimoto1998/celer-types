@@ -18,7 +18,7 @@ declare module '@polkadot/api/types/submittable' {
              * not assumed to be in the overlay.
              * # </weight>
              **/
-            forceTransfer: AugmentedSubmittable<(source: LookupSource | Address | AccountId | AccountIndex | string | Uint8Array, dest: LookupSource | Address | AccountId | AccountIndex | string | Uint8Array, value: Compact<Balance> | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>>;
+            forceTransfer: AugmentedSubmittable<(source: LookupSource | Address | AccountId | AccountIndex | LookupSource | string | Uint8Array, dest: LookupSource | Address | AccountId | AccountIndex | LookupSource | string | Uint8Array, value: Compact<Balance> | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>>;
             /**
              * Set the balances of a given account.
              *
@@ -39,7 +39,7 @@ declare module '@polkadot/api/types/submittable' {
              * - DB Weight: 1 Read, 1 Write to `who`
              * # </weight>
              **/
-            setBalance: AugmentedSubmittable<(who: LookupSource | Address | AccountId | AccountIndex | string | Uint8Array, newFree: Compact<Balance> | AnyNumber | Uint8Array, newReserved: Compact<Balance> | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>>;
+            setBalance: AugmentedSubmittable<(who: LookupSource | Address | AccountId | AccountIndex | LookupSource | string | Uint8Array, newFree: Compact<Balance> | AnyNumber | Uint8Array, newReserved: Compact<Balance> | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>>;
             /**
              * Transfer some liquid free balance to another account.
              *
@@ -69,7 +69,7 @@ declare module '@polkadot/api/types/submittable' {
              * - Origin account is already in memory, so no DB operations for them.
              * # </weight>
              **/
-            transfer: AugmentedSubmittable<(dest: LookupSource | Address | AccountId | AccountIndex | string | Uint8Array, value: Compact<Balance> | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>>;
+            transfer: AugmentedSubmittable<(dest: LookupSource | Address | AccountId | AccountIndex | LookupSource | string | Uint8Array, value: Compact<Balance> | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>>;
             /**
              * Same as the [`transfer`] call, but with a check that the transfer will not kill the
              * origin account.
@@ -83,7 +83,7 @@ declare module '@polkadot/api/types/submittable' {
              * - DB Weight: 1 Read and 1 Write to dest (sender is in overlay already)
              * #</weight>
              **/
-            transferKeepAlive: AugmentedSubmittable<(dest: LookupSource | Address | AccountId | AccountIndex | string | Uint8Array, value: Compact<Balance> | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>>;
+            transferKeepAlive: AugmentedSubmittable<(dest: LookupSource | Address | AccountId | AccountIndex | LookupSource | string | Uint8Array, value: Compact<Balance> | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>>;
         };
         celerPayModule: {
             /**
@@ -226,7 +226,7 @@ declare module '@polkadot/api/types/submittable' {
              * Parameters:
              * `channel_id`: Id of the channel
              * `receiver`: address of the receiver
-             * `amount`: caller's deposit amount
+             * `msg_value`: caller's deposit amount
              * `transfer_from_amount`: amount of funds to be transfered from Pool
              *
              * # <weight>
@@ -243,14 +243,14 @@ declare module '@polkadot/api/types/submittable' {
              * - 1 storage mutation `Allowed`
              * # </weight>
              **/
-            deposit: AugmentedSubmittable<(channelId: Hash | string | Uint8Array, receiver: AccountId | string | Uint8Array, amount: BalanceOf | AnyNumber | Uint8Array, transferFromAmount: BalanceOf | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>>;
+            deposit: AugmentedSubmittable<(channelId: Hash | string | Uint8Array, receiver: AccountId | string | Uint8Array, msgValue: BalanceOf | AnyNumber | Uint8Array, transferFromAmount: BalanceOf | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>>;
             /**
              * Deposit native tokens into the channel
              *
              * Parameters:
              * `channel_ids`: Ids of channel
              * `receivers`: addresses of receiver
-             * `amounts`: caller's deposit amounts
+             * `msg_values`: caller's deposit amounts
              * `transfer_from_amounts`: amounts of funds to be transfered from Pool
              *
              * # <weight>
@@ -267,14 +267,14 @@ declare module '@polkadot/api/types/submittable' {
              * - N storage mutation `Allowed`
              * # </weight
              **/
-            depositInBatch: AugmentedSubmittable<(channelIds: Vec<Hash> | (Hash | string | Uint8Array)[], receivers: Vec<AccountId> | (AccountId | string | Uint8Array)[], amounts: Vec<BalanceOf> | (BalanceOf | AnyNumber | Uint8Array)[], transferFromAmounts: Vec<BalanceOf> | (BalanceOf | AnyNumber | Uint8Array)[]) => SubmittableExtrinsic<ApiType>>;
+            depositInBatch: AugmentedSubmittable<(channelIds: Vec<Hash> | (Hash | string | Uint8Array)[], receivers: Vec<AccountId> | (AccountId | string | Uint8Array)[], msgValues: Vec<BalanceOf> | (BalanceOf | AnyNumber | Uint8Array)[], transferFromAmounts: Vec<BalanceOf> | (BalanceOf | AnyNumber | Uint8Array)[]) => SubmittableExtrinsic<ApiType>>;
             /**
              * Celer Wallet
              * Deposit native token to a wallet.
              *
              * Parameter:
              * `wallet_id`: Id of the wallet to deposit into
-             * `amount`: depoist amount
+             * `msg_value`: depoist amount
              *
              * # <weight>
              * ## Weight
@@ -284,14 +284,14 @@ declare module '@polkadot/api/types/submittable' {
              * - 1 storage mutation `Wallets`
              * # </weight>
              **/
-            depositNativeToken: AugmentedSubmittable<(walletId: Hash | string | Uint8Array, amount: BalanceOf | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>>;
+            depositNativeToken: AugmentedSubmittable<(walletId: Hash | string | Uint8Array, msgValue: BalanceOf | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>>;
             /**
              * Pool
              * Deposit native token into Pool
              *
              * Parameters:
-             * `receiver`: the address native token is deposited to
-             * `amount`: amount of deposit
+             * `receiver`: the address native token is deposited to pool
+             * `msg_value`: amount of deposit to pool
              *
              * # <weight>
              * ## Weight
@@ -301,7 +301,7 @@ declare module '@polkadot/api/types/submittable' {
              * - 1 storage mutation `Balances`
              * #</weight>
              **/
-            depositPool: AugmentedSubmittable<(receiver: AccountId | string | Uint8Array, amount: BalanceOf | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>>;
+            depositPool: AugmentedSubmittable<(receiver: AccountId | string | Uint8Array, msgValue: BalanceOf | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>>;
             /**
              * Disable balance limits
              *
@@ -398,7 +398,7 @@ declare module '@polkadot/api/types/submittable' {
              *
              * Parameters:
              * `open_request`: open channel request message
-             * `amount`: caller's deposit amount
+             * `msg_value`: caller's deposit amount
              *
              * # <weight>
              * ## Weight
@@ -416,7 +416,7 @@ declare module '@polkadot/api/types/submittable' {
             openChannel: AugmentedSubmittable<(openRequest: OpenChannelRequestOf | {
                 channelInitializer?: any;
                 sigs?: any;
-            } | string | Uint8Array, amount: BalanceOf | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>>;
+            } | string | Uint8Array, msgValue: BalanceOf | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>>;
             /**
              * PayResolver
              * Resolve a payment by onchain getting its conditons outcomes
@@ -611,7 +611,7 @@ declare module '@polkadot/api/types/submittable' {
              * - One DB change.
              * # </weight>
              **/
-            setKey: AugmentedSubmittable<(updated: LookupSource | Address | AccountId | AccountIndex | string | Uint8Array) => SubmittableExtrinsic<ApiType>>;
+            setKey: AugmentedSubmittable<(updated: LookupSource | Address | AccountId | AccountIndex | LookupSource | string | Uint8Array) => SubmittableExtrinsic<ApiType>>;
             /**
              * Authenticates the sudo key and dispatches a function call with `Root` origin.
              *
@@ -641,7 +641,7 @@ declare module '@polkadot/api/types/submittable' {
              * - Weight of derivative `call` execution + 10,000.
              * # </weight>
              **/
-            sudoAs: AugmentedSubmittable<(who: LookupSource | Address | AccountId | AccountIndex | string | Uint8Array, call: Call | {
+            sudoAs: AugmentedSubmittable<(who: LookupSource | Address | AccountId | AccountIndex | LookupSource | string | Uint8Array, call: Call | {
                 callIndex?: any;
                 args?: any;
             } | string | Uint8Array) => SubmittableExtrinsic<ApiType>>;
